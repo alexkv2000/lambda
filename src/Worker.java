@@ -7,9 +7,9 @@ public class Worker {
         void onDone(String result);
     }
 
-    public Worker(OnTaskDoneListener callback) {
+    public Worker(OnTaskDoneListener callback, OnTaskErrorListener errorCallback) {
         this.callback = callback;
-        this.errorCallback = x -> (x == 33) ? 0 : 1; // значение 0 - ошибка; 1 - корректно.
+        this.errorCallback = errorCallback;
     }
 
     public void start() {
